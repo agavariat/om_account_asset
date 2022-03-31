@@ -26,7 +26,6 @@ class AssetAssetReport(models.Model):
     unposted_value = fields.Float(string='Unposted Amount', readonly=True)
     company_id = fields.Many2one('res.company', string='Company', readonly=True)
 
-    @api.model_cr
     def init(self):
         tools.drop_view_if_exists(self._cr, 'asset_asset_report')
         self._cr.execute("""
